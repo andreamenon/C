@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1754208013 source:/home/andrew/C/SCL/main.c
+	<stdio.h>
+	<stdlib.h>
+
