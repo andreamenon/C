@@ -7,7 +7,7 @@
 // Prima definisci la struct con nome strutturale
 struct SCL {
     int data;
-    struct SCL *scl;
+    struct SCL *next;
 };
 
 // Poi fai il typedef (fuori dalla definizione)
@@ -17,6 +17,10 @@ typedef struct SCL SCL;
 
 int main()
 {
-    SCL *scl = NULL;
+    SCL *scl = malloc(sizeof(*scl));
+    scl->data = 10;
+    scl->next = NULL;
+    printf("%d", scl->data);
+    free(scl);
     return 0;
 }
