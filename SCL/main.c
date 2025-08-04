@@ -36,13 +36,23 @@ SLLType SLLCreate() {
 
 // Add a node in First position
 void SLLAddInFirstPosition(SLLType *sll) {
-    SLLNodeType *sll1 = malloc(sizeof(sll1));
+    SLLNodeType *sll1 = malloc(sizeof(*sll1));
     if (sll1 == NULL) {
         printf("SLLAddInFirstPosition malloc error\n");
         exit(EXIT_FAILURE);
     }
     sll1->next = *sll;
     *sll = sll1;
+}
+
+// Free the heap
+void SLLFree(SLLType sll) {
+    SLLNodeType *current = sll;
+    while (current != NULL) {
+        SLLNodeType *next = current->next;
+        free(current);
+        current = next;
+    }
 }
 
 #endif // SLL_H
@@ -62,10 +72,8 @@ int main()
     SLLAddInFirstPosition(&sll);
     sll->info.data = 20;
     printf("Ner first node data: %d and old first (now second) node data %d\n", sll->info.data, sll->next->info.data);
-    free(sll);
-    /*SCL scl1;
-    scl1.data = 12;
-    scl1.next = NULL;
-    printf("%d", scl1.data);*/
+
+    SLLFree(sll);
+
     return 0;
 }
