@@ -34,16 +34,16 @@ SLLType SLLCreate() {
     return sll;
 }
 
-// Add en element to the SCL in First position
-/*void addInFirstPostoSCL(SCL **pSCL) {
-    SCL *scl = malloc(sizeof(*scl));
-    if (scl == NULL) {
-        printf("aaddInFirstPostoSCL malloc error\n");
+// Add a node in First position
+void SLLAddInFirstPosition(SLLType *sll) {
+    SLLNodeType *sll1 = malloc(sizeof(sll1));
+    if (sll1 == NULL) {
+        printf("SLLAddInFirstPosition malloc error\n");
         exit(EXIT_FAILURE);
     }
-    scl->next = *pSCL;
-    *pSCL = scl;
-}*/
+    sll1->next = *sll;
+    *sll = sll1;
+}
 
 #endif // SLL_H
 
@@ -53,13 +53,15 @@ int main()
     // Declaration and allocation of a SLL
     SLLType sll = SLLCreate();
 
-    // Initialize the content of the unique node
+    // Initialize and print the content of the unique node
     sll->info.data = 10;
     sll->next = NULL;
-    printf("First SLL data: %d\n", sll->info.data);
-    //addInFirstPostoSCL(&scl);
-    //scl->data = 20;
-    //printf("Second SCL data: %d %d\n", scl->data, scl->next->data);
+    printf("Unique node data: %d\n", sll->info.data);
+
+    // Add a node in first position, initialize and print
+    SLLAddInFirstPosition(&sll);
+    sll->info.data = 20;
+    printf("Ner first node data: %d and old first (now second) node data %d\n", sll->info.data, sll->next->info.data);
     free(sll);
     /*SCL scl1;
     scl1.data = 12;
