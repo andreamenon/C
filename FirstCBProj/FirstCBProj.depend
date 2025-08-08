@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1751911333 source:/home/andrew/C/progetto/main.c
+	<stdio.h>
+	"somma.h"
+
+1751912487 /home/andrew/C/progetto/somma.h
+
+1751911286 source:/home/andrew/C/progetto/somma.c
+	"somma.h"
+
