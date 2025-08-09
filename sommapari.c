@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 int a[12] = {1,2,3,4,5,6,7,8,9,20,31,42};
 int risultato = 0;
@@ -10,8 +11,6 @@ struct nodo {
 };
 
 typedef struct nodo anodo;
-//typedef struct nodo tnodo;
-//typedef tnodo * pnodo;
 
 void AggiungiNodo (struct nodo nodo, int valore) {
     struct nodo nnodo;
@@ -26,9 +25,12 @@ void SommaPari(struct nodo * nodo, int * risultato) {
 }
 
 int main(void) {
-    struct nodo nodo;
-    nodo.valore = a[0];
-    nodo.next = NULL;
+	int w[] = {100,1};
+	long *l = (long*)&w;
+	printf("i to l: %ld\n",*l);
+	long ll = 4294967396;
+	int *ww = (int*)&ll;
+	printf("l to i: %d %d\n",*ww,*(ww+1));
     anodo an[12];
     for (int i=0; i<12; i++) {
         an[i].valore = a[i];
@@ -44,6 +46,6 @@ int main(void) {
             risultato = risultato + a[i];
         }
     }
-    printf("%d",risultato);
+    printf("%d\n",risultato);
     return 0;
 }
