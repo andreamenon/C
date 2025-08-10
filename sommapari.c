@@ -28,9 +28,22 @@ int main(void) {
 	int w[] = {100,1};
 	long *l = (long*)&w;
 	printf("i to l: %ld\n",*l);
-	long ll = 4294967396;
+	long ll = 4294967396; // 1*256^4 + 100
 	int *ww = (int*)&ll;
 	printf("l to i: %d %d\n",*ww,*(ww+1));
+	char str[] = "CIAO"; // in esa 43 49 41 4F
+	short *sh = (short*)str;
+	printf("c to s: %hX %hX\n",*sh,*(sh+1));
+	int ii = -1;
+	printf("i to ui: %u\n",ii);
+	int iii = 32769;
+	short siii = (short)iii;
+	printf("i to s: %hd\n",siii);
+	char ic[6];
+	scanf("%5s",ic);
+	printf("%s\n",ic);
+	char uch = 128;
+	printf("%d\n",uch);
     anodo an[12];
     for (int i=0; i<12; i++) {
         an[i].valore = a[i];
